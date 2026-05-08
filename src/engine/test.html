@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engine Test</title>
+<link rel="stylesheet" href="story-engine.css">
+</head>
+<body class="story-scene">
+<div id="story-root" class="story-container"><div class="story-content"></div></div>
+<script src="story-engine.js"></script>
+<script>
+const testData = {
+  start: {
+    paragraphs: ['Engine test. Can you see this text and the choices below?'],
+    choices: [
+      { text: 'Choice A - sets flag', next: 'scene_a', setFlag: 'chose_a' },
+      { text: 'Choice B - adds item', next: 'scene_b', addItem: 'test_item' },
+      { text: 'Choice C - only visible if flag set', next: 'scene_c', condition: { flag: 'chose_a' } },
+    ]
+  },
+  scene_a: { paragraphs: ['You chose A. Flag set. Item in inventory:'], onEnter: (s) => { s.inventory.push('bonus_from_a'); }, choices: [{ text: 'Back to start', next: 'start' }] },
+  scene_b: { paragraphs: ['You chose B. Test item added.'], choices: [{ text: 'Back to start', next: 'start' }] },
+  scene_c: { paragraphs: ['This should only appear after choosing A first.'], next: 'start' },
+};
+const engine = new StoryEngine('story-root', testData);
+engine.start('start');
+</script>
+</body>
+</html>

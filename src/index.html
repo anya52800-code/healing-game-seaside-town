@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>望海镇 · 开发导航</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1410;
+    color: #c8b898;
+    font-family: 'Georgia', 'Noto Serif SC', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .nav { text-align: center; }
+  h1 { font-size: 32px; margin-bottom: 8px; color: #e0d6c8; }
+  .subtitle { opacity: 0.5; margin-bottom: 48px; font-size: 14px; letter-spacing: 2px; }
+  .links { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .links a {
+    color: #a09070;
+    text-decoration: none;
+    padding: 14px 40px;
+    border: 1px solid rgba(160,144,112,0.3);
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-size: 16px;
+    min-width: 280px;
+    text-align: center;
+  }
+  .links a:hover {
+    background: rgba(160,144,112,0.1);
+    border-color: rgba(160,144,112,0.5);
+    color: #d0c0a0;
+  }
+  .links a .desc { display: block; font-size: 12px; opacity: 0.5; margin-top: 4px; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.35; margin-top: 32px; margin-bottom: 12px; }
+  .section-label:first-of-type { margin-top: 0; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <h1>望海镇</h1>
+  <p class="subtitle">治愈系互动小说 · 开发构建</p>
+
+  <p class="section-label">第一章 · 互动小说</p>
+  <div class="links">
+    <a href="chapter1/chapter1.html">
+      从开场仪式开始
+      <span class="desc">傍晚的公寓 → 望海镇 → 老陈的灯塔</span>
+    </a>
+  </div>
+
+  <p class="section-label">心象空间 DEMO</p>
+  <div class="links">
+    <a href="heartspace/lchen-storm.html">
+      老陈 · 无尽暴风雨之夜
+      <span class="desc">触摸与修复 — 收集记忆碎片，平息七年风暴</span>
+    </a>
+  </div>
+
+  <p class="section-label">开发工具</p>
+  <div class="links">
+    <a href="engine/test.html">
+      引擎测试页
+      <span class="desc">验证 StoryEngine 基础功能</span>
+    </a>
+  </div>
+
+  <p style="margin-top:48px;font-size:11px;opacity:0.25;">
+    docs/superpowers/specs/2026-05-08-healing-game-design.md
+  </p>
+</div>
+</body>
+</html>
