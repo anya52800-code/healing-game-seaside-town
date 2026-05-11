@@ -65,23 +65,30 @@ func setup_ui() -> void:
 	# Dialog panel at the bottom
 	dialog_panel = Panel.new()
 	dialog_panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	dialog_panel.offset_top = -220
+	dialog_panel.offset_top = -440
 	dialog_panel.offset_bottom = -20
 	var panel_style := StyleBoxFlat.new()
 	panel_style.bg_color = Color(0.102, 0.078, 0.063, 0.92)
 	panel_style.set_corner_radius_all(12)
-	panel_style.content_margin_left = 24
-	panel_style.content_margin_right = 24
-	panel_style.content_margin_top = 16
-	panel_style.content_margin_bottom = 16
 	dialog_panel.add_theme_stylebox_override("panel", panel_style)
 	add_child(dialog_panel)
+
+	# Scroll container for overflow content
+	var scroll := ScrollContainer.new()
+	scroll.name = "ScrollContainer"
+	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	scroll.add_theme_constant_override("margin_left", 24)
+	scroll.add_theme_constant_override("margin_right", 24)
+	scroll.add_theme_constant_override("margin_top", 16)
+	scroll.add_theme_constant_override("margin_bottom", 16)
+	dialog_panel.add_child(scroll)
 
 	# Dialog content
 	var content_box := VBoxContainer.new()
 	content_box.name = "ContentBox"
-	content_box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	dialog_panel.add_child(content_box)
+	content_box.size_flags_horizontal = Control.SIZE_FILL
+	content_box.size_flags_vertical = Control.SIZE_FILL
+	scroll.add_child(content_box)
 
 	title_label = Label.new()
 	title_label.name = "TitleLabel"
@@ -144,7 +151,7 @@ func setup_dialog_controller() -> void:
 	dialog_ctrl.set_script(_dg_script)
 	add_child(dialog_ctrl)
 	# Wire child node references for dialog controller
-	dialog_ctrl.content_box = dialog_panel.get_node("ContentBox")
+	dialog_ctrl.content_box = dialog_panel.get_node("ScrollContainer/ContentBox")
 	dialog_ctrl.title_label = title_label
 	dialog_ctrl.text_label = text_label
 	dialog_ctrl.choices_box = choices_box
