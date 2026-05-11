@@ -83,13 +83,14 @@ func setup_ui() -> void:
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.follow_focus = true
+	scroll.scroll_vertical_custom_step = 30.0
 	dialog_panel.add_child(scroll)
 
 	# Dialog content
 	var content_box := VBoxContainer.new()
 	content_box.name = "ContentBox"
+	content_box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	content_box.size_flags_horizontal = Control.SIZE_FILL
-	content_box.size_flags_vertical = Control.SIZE_FILL
 	scroll.add_child(content_box)
 
 	title_label = Label.new()
@@ -103,14 +104,16 @@ func setup_ui() -> void:
 	text_label.add_theme_font_size_override("normal_font_size", 15)
 	text_label.add_theme_color_override("default_color", Color(0.878, 0.839, 0.784))
 	text_label.bbcode_enabled = true
-	text_label.fit_content = true
+	text_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text_label.custom_minimum_size = Vector2(0, 80)
-	text_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	text_label.size_flags_horizontal = Control.SIZE_FILL
+	text_label.size_flags_vertical = Control.SIZE_FILL
 	content_box.add_child(text_label)
 
 	choices_box = VBoxContainer.new()
 	choices_box.name = "ChoicesBox"
 	choices_box.add_theme_constant_override("separation", 6)
+	choices_box.size_flags_horizontal = Control.SIZE_FILL
 	content_box.add_child(choices_box)
 
 	continue_btn = Button.new()

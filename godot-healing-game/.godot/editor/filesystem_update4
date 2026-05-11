@@ -1,2 +1,3 @@
 res://scripts/dialog_controller.gd
 res://MainScene.gd
+res://autoload/audio_manager.gd
