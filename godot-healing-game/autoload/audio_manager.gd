@@ -13,14 +13,18 @@ func _ready() -> void:
 	_sfx_player.bus = "Master"
 	add_child(_sfx_player)
 
-func play_sfx(type: String) -> void:
+func play_sfx(_type: String) -> void:
+	return # Audio disabled for stability
+
+func _play_sfx_impl(type: String) -> void:
 	var gen := AudioStreamGenerator.new()
 	gen.mix_rate = 44100
 	gen.buffer_length = 0.5
 	_sfx_player.stream = gen
 	_sfx_player.play()
 	var playback := _sfx_player.get_stream_playback()
-	_fill_sfx(playback, gen.mix_rate, type)
+	if playback:
+		_fill_sfx(playback, gen.mix_rate, type)
 
 func play_ambient(type: String) -> void:
 	var gen := AudioStreamGenerator.new()

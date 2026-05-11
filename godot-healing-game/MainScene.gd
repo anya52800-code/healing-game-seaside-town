@@ -70,6 +70,10 @@ func setup_ui() -> void:
 	var panel_style := StyleBoxFlat.new()
 	panel_style.bg_color = Color(0.102, 0.078, 0.063, 0.92)
 	panel_style.set_corner_radius_all(12)
+	panel_style.content_margin_left = 24
+	panel_style.content_margin_right = 24
+	panel_style.content_margin_top = 16
+	panel_style.content_margin_bottom = 16
 	dialog_panel.add_theme_stylebox_override("panel", panel_style)
 	add_child(dialog_panel)
 
@@ -77,10 +81,8 @@ func setup_ui() -> void:
 	var scroll := ScrollContainer.new()
 	scroll.name = "ScrollContainer"
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	scroll.add_theme_constant_override("margin_left", 24)
-	scroll.add_theme_constant_override("margin_right", 24)
-	scroll.add_theme_constant_override("margin_top", 16)
-	scroll.add_theme_constant_override("margin_bottom", 16)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.follow_focus = true
 	dialog_panel.add_child(scroll)
 
 	# Dialog content
