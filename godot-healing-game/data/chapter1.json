@@ -1,0 +1,854 @@
+{
+  "opening_start": {
+    "title": "傍晚",
+    "paragraphs": [
+      "傍晚的光从窗户斜进来，把半个客厅染成了蜜糖色。",
+      "沙发上搭着一条毛毯，桌上有一杯半凉的茶。角落里堆着几本书，有一本翻到一半，扣在地上。",
+      "茶几上放着一张车票——\"望海镇\"。还有一张便条，字迹潦草但温柔：",
+      "\"你需要休息一段时间。那边有人接你。带上你想带的就行。\"",
+      "行李箱摊开在地上，差不多快满了。你扫了一眼——大概还能塞三样东西。"
+    ],
+    "choices": [
+      {
+        "text": "在房间里走走，看看有什么可以带",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "opening_room": {
+    "paragraphs": [
+      "你在这个住了很久的公寓里慢慢走了一圈。",
+      "每一件东西都认识你。有些东西甚至比你自己还了解你。"
+    ],
+    "choices": [
+      {
+        "text": "看看书架边的旧照片",
+        "next": "item_photo",
+        "condition": {
+          "notFlag": "took_photo"
+        }
+      },
+      {
+        "text": "拿起搭在椅背上的手织围巾",
+        "next": "item_scarf",
+        "condition": {
+          "notFlag": "took_scarf"
+        }
+      },
+      {
+        "text": "打开抽屉，看看那封未寄出的信",
+        "next": "item_letter",
+        "condition": {
+          "notFlag": "took_letter"
+        }
+      },
+      {
+        "text": "去阳台看看那块石头",
+        "next": "item_stone",
+        "condition": {
+          "notFlag": "took_stone"
+        }
+      },
+      {
+        "text": "拿起床头柜上的旧 MP3",
+        "next": "item_mp3",
+        "condition": {
+          "notFlag": "took_mp3"
+        }
+      },
+      {
+        "text": "看看窗台上那盆快枯死的植物",
+        "next": "item_plant",
+        "condition": {
+          "notFlag": "took_plant"
+        }
+      },
+      {
+        "text": "从书架上抽出那本没读完的书",
+        "next": "item_book",
+        "condition": {
+          "notFlag": "took_book"
+        }
+      },
+      {
+        "text": "拉开电视柜抽屉——里面有台旧游戏机",
+        "next": "item_game",
+        "condition": {
+          "notFlag": "took_game"
+        }
+      },
+      {
+        "text": "注意到沙发上蜷着的猫",
+        "next": "item_cat_first"
+      },
+      {
+        "text": "（行李箱满了，该出发了）",
+        "next": "opening_leave"
+      }
+    ],
+    "onEnter": "opening_room_counter"
+  },
+  "item_photo": {
+    "paragraphs": [
+      "一张旧照片。照片上的人脸有些模糊了——也许是阳光太强，也许是时间太久。",
+      "你记得那天的阳光很好。但现在再看这张照片，你说不清自己是怀念那个人，还是怀念那个时候的自己。"
+    ],
+    "choices": [
+      {
+        "text": "放进箱子。有些东西放不下，那就带着走。",
+        "next": "item_photo_add",
+        "addItem": "旧照片",
+        "setFlag": "took_photo"
+      },
+      {
+        "text": "放回书架。有些东西该留在原地。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_photo_add": {
+    "paragraphs": [
+      "照片滑进箱子侧袋。你感觉它轻轻叹了口气——或者是箱子在叹气。"
+    ],
+    "next": "opening_room"
+  },
+  "item_scarf": {
+    "paragraphs": [
+      "一条手织的围巾，针脚不太整齐，但很暖和。有人给你织的。",
+      "你已经很久没见那个人了。围巾上有淡淡的樟脑味——你一直在保护它，却很少真正用它。"
+    ],
+    "choices": [
+      {
+        "text": "围上试了试。还是暖的。放进行李箱。",
+        "next": "item_scarf_add",
+        "addItem": "手织围巾",
+        "setFlag": "took_scarf"
+      },
+      {
+        "text": "叠好放回椅背。带着记忆就行，不用带着东西。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_scarf_add": {
+    "paragraphs": [
+      "围巾柔软地蜷在箱子角落。你想起那个人说的话：\"冷了记得围。\""
+    ],
+    "next": "opening_room"
+  },
+  "item_letter": {
+    "paragraphs": [
+      "信封已经有些发黄了。压在抽屉最底层，和几张旧账单、一把生锈的钥匙在一起。",
+      "收件人的名字写了一半，后半截被划掉了。你甚至不记得当初想说什么——道歉？告白？告别？"
+    ],
+    "choices": [
+      {
+        "text": "放进箱子。也许有一天我会写完它。也许不会。",
+        "next": "item_letter_add",
+        "addItem": "未寄出的信",
+        "setFlag": "took_letter"
+      },
+      {
+        "text": "放回抽屉。有些话，没说出来也许是对的。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_letter_add": {
+    "paragraphs": [
+      "信躺在箱底，安安静静的。你不打算寄它。但你打算带着它。"
+    ],
+    "next": "opening_room"
+  },
+  "item_stone": {
+    "paragraphs": [
+      "一块光滑的石头。你从海边捡回来的，不知道为什么一直留着。",
+      "它很重，很凉，没有任何实用价值。但握着它的时候，你会平静下来。"
+    ],
+    "choices": [
+      {
+        "text": "放进口袋。沉一点没关系。",
+        "next": "item_stone_add",
+        "addItem": "光滑的石头",
+        "setFlag": "took_stone"
+      },
+      {
+        "text": "放回阳台。它属于海边，也许该让它留在这里。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_stone_add": {
+    "paragraphs": [
+      "石头沉甸甸地落进口袋。你感到一种奇怪的安心——好像它在说：\"我帮你坠着。\""
+    ],
+    "next": "opening_room"
+  },
+  "item_mp3": {
+    "paragraphs": [
+      "早就没电了。但你记得里面有一首歌，每次听到都会哭。",
+      "不是因为难过——是因为终于有人把你说不出来的东西唱出来了。"
+    ],
+    "choices": [
+      {
+        "text": "放进箱子。没电了也没关系，旋律还记得。",
+        "next": "item_mp3_add",
+        "addItem": "旧MP3",
+        "setFlag": "took_mp3"
+      },
+      {
+        "text": "放回床头柜。那首歌已经在我脑子里了。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_mp3_add": {
+    "paragraphs": [
+      "没有电池的 MP3 轻得几乎没有重量。但你知道它在。"
+    ],
+    "next": "opening_room"
+  },
+  "item_plant": {
+    "paragraphs": [
+      "这盆植物总是在濒死的边缘。叶子蔫了大半，但茎还绿着。",
+      "你总是忘记给它浇水。但它用一种顽固的方式活着——不漂亮，但还没放弃。",
+      "你觉得有点内疚，又有点被感动。"
+    ],
+    "choices": [
+      {
+        "text": "浇了最后一次水，然后把它放进箱子。咱俩都还活着。",
+        "next": "item_plant_add",
+        "addItem": "快枯死的植物",
+        "setFlag": "took_plant"
+      },
+      {
+        "text": "给它浇了水，放在窗台上。邻居会帮忙照看的。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_plant_add": {
+    "paragraphs": [
+      "植物的叶子蹭了蹭你的手。你不太确定植物能不能蹭人。也许只是风。"
+    ],
+    "next": "opening_room"
+  },
+  "item_book": {
+    "paragraphs": [
+      "一本翻到一半的书。你读过很多次，但从来没读完。",
+      "不是不好看——是每次读到某个段落，你就停下来想很久。那几页被反复翻过，边缘起毛了。",
+      "书脊有些裂了。它跟着你搬了三次家。"
+    ],
+    "choices": [
+      {
+        "text": "放进箱子。总有一天我会把它读完。",
+        "next": "item_book_add",
+        "addItem": "旧书",
+        "setFlag": "took_book"
+      },
+      {
+        "text": "放回书架。有些故事，读到一半就够了。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_book_add": {
+    "paragraphs": [
+      "书页间夹着一张旧书签——你都不记得什么时候放的。也许到了望海镇，可以接着读。"
+    ],
+    "next": "opening_room"
+  },
+  "item_game": {
+    "paragraphs": [
+      "一台老旧的掌机。外壳有些发黄，屏幕上有一道浅浅的划痕。",
+      "你很久没碰过它了。但你知道电池仓里还插着那张卡带——存档停在某个暑假的傍晚。",
+      "以前你觉得玩游戏是浪费时间。现在你不太确定什么才算\"不浪费\"。"
+    ],
+    "choices": [
+      {
+        "text": "放进箱子。也许可以再玩一会儿。",
+        "next": "item_game_add",
+        "addItem": "旧游戏机",
+        "setFlag": "took_game"
+      },
+      {
+        "text": "放回抽屉。有些游戏，存档停在最好的时候就够了。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_game_add": {
+    "paragraphs": [
+      "游戏机滑进箱子侧袋。你没开机——但你知道那个存档还在。有些东西，暂停比通关更需要勇气。"
+    ],
+    "next": "opening_room"
+  },
+  "item_cat_first": {
+    "paragraphs": [
+      "沙发上蜷着一只猫。它一直在那里。",
+      "你收拾行李的时候，它半睁着眼看你，偶尔换个姿势，但始终没离开沙发。",
+      "你走过去，它抬头看了你一眼，然后继续舔爪子。",
+      "你再看了它一会儿。它站起来，伸了个懒腰，走到行李箱旁边坐下。",
+      "然后——它看着你。不说一句话。"
+    ],
+    "choices": [
+      {
+        "text": "再点它一下",
+        "next": "item_cat_second"
+      },
+      {
+        "text": "（笑了笑，继续收拾行李）",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_cat_second": {
+    "paragraphs": [
+      "\"你收拾完了？\"",
+      "它打了个哈欠。",
+      "箱子已经塞了三样东西。但它不是物品——你没法把它\"装进去\"。"
+    ],
+    "choices": [
+      {
+        "text": "抱起猫。它不是行李，它是我带的同伴。",
+        "next": "item_cat_add",
+        "setFlag": "took_cat"
+      },
+      {
+        "text": "摸摸它的头。\"在这里等我回来。\"",
+        "next": "opening_room"
+      },
+      {
+        "text": "把它放回沙发。猫不需要旅行。",
+        "next": "opening_room"
+      }
+    ]
+  },
+  "item_cat_add": {
+    "paragraphs": [
+      "\"行吧。我不占地方。\"",
+      "它蜷进你的怀里，开始打呼噜。",
+      "你检查了一下箱子——还是三样东西。猫不算。猫从来不算。"
+    ],
+    "next": "opening_room"
+  },
+  "opening_leave": {
+    "paragraphs": [
+      "你站在门口，最后看了一眼这个住了很久的公寓。",
+      "晚霞已经褪成了深蓝。行李箱在你脚边，沉甸甸的——装了三样你选择带走的东西。"
+    ],
+    "choices": [
+      {
+        "text": "关上门。出发。",
+        "next": "arrival_train"
+      }
+    ]
+  },
+  "arrival_train": {
+    "paragraphs": [
+      "列车在夜色中穿行。窗外偶尔掠过几点灯火，很快就消失在黑暗里。",
+      "你靠着窗，感到一种奇怪的平静。",
+      "不是开心，也不是难过——是终于可以什么都不想了。",
+      "广播响了：\"前方到站——望海镇。\""
+    ],
+    "next": "arrival_station"
+  },
+  "arrival_station": {
+    "paragraphs": [
+      "车站很小。只有一条长椅、一盏路灯、和一个写着\"望海镇\"的旧木牌。",
+      "海风从某个方向吹过来，带着盐的味道和远处渔船的汽笛声。",
+      "你站在站台上，深吸了一口气。这里的空气和城里不一样——更慢，更安静。",
+      "一个声音从你身后传来：\"来了？\""
+    ],
+    "choices": [
+      {
+        "text": "回头",
+        "next": "meet_ashu_first"
+      }
+    ]
+  },
+  "meet_ashu_first": {
+    "paragraphs": [
+      "一个中年男人站在路灯下。他穿着有点旧的棉麻衬衫，手里拎着一盏纸灯笼。",
+      "\"我是阿树。茶馆的。\"他说话很慢，每个字之间有空隙，像风吹过竹林。",
+      "\"便条上说的'有人接你'——就是我。\"",
+      "他看了看你，又看了看你的行李箱。没问任何问题，只是点了点头。",
+      "\"走吧。茶馆离这不远。今晚先歇着，明天你想到处走走再说。\""
+    ],
+    "choices": [
+      {
+        "text": "\"谢谢你来接我。\"",
+        "next": "walk_to_teahouse"
+      },
+      {
+        "text": "点点头，跟着他走",
+        "next": "walk_to_teahouse"
+      }
+    ]
+  },
+  "walk_to_teahouse": {
+    "paragraphs": [
+      "阿树提着灯笼走在前面，你在后面跟着。",
+      "小镇的夜晚很安静。石板路两旁是低矮的老房子，有些窗户透着暖黄色的光。",
+      "你听到了海浪的声音——不远，就在某条巷子的尽头。",
+      "阿树忽然开口：\"这个镇子不大。灯塔、码头、老街、面馆、还有我的茶馆。明天你可以到处转转。\"",
+      "他停顿了一下。",
+      "\"有些人来望海镇，是为了找一个答案。有些人来——是为了忘掉一个问题。你不用告诉我你是哪种。\""
+    ],
+    "choices": [
+      {
+        "text": "\"你呢？你是哪种？\"",
+        "next": "ashu_laugh",
+        "setRelationship": {
+          "npc": "ashu",
+          "change": 1
+        }
+      },
+      {
+        "text": "沉默地走着。有些问题不需要现在回答。",
+        "next": "arrive_teahouse"
+      }
+    ]
+  },
+  "ashu_laugh": {
+    "paragraphs": [
+      "阿树轻轻笑了一声。不是觉得好笑——像是被戳中了什么。",
+      "\"我？我两种都不是。我是那个开了茶馆之后，发现自己也需要喝茶的人。\"",
+      "他没有继续解释。但你感觉这句话比听起来要重。"
+    ],
+    "next": "arrive_teahouse"
+  },
+  "arrive_teahouse": {
+    "paragraphs": [
+      "茶馆不大，但很舒服。木质的桌椅、墙上挂着几幅淡彩画、柜台上摆着一排陶罐。",
+      "阿树给你倒了一杯茶。热气在灯光下慢慢升起。",
+      "\"房间在后面。被子是新换的。有什么需要就喊我——我睡得晚。\"",
+      "他走了几步，又回头。",
+      "\"对了——茶别喝完。留一口。\""
+    ],
+    "choices": [
+      {
+        "text": "\"为什么要留一口？\"",
+        "next": "ashu_tea_wisdom",
+        "setRelationship": {
+          "npc": "ashu",
+          "change": 1
+        }
+      },
+      {
+        "text": "点点头，捧着茶杯暖手",
+        "next": "first_night"
+      }
+    ]
+  },
+  "ashu_tea_wisdom": {
+    "paragraphs": [
+      "\"留一口，代表还有下一次。\"他笑了笑，\"空杯子代表结束。留一口的杯子——代表还会再来。\"",
+      "他说完就上楼了。脚步声很轻。"
+    ],
+    "next": "first_night"
+  },
+  "first_night": {
+    "title": "第一夜",
+    "paragraphs": [
+      "你在房间里坐了一会儿。窗外可以看到远处灯塔的光——一闪一闪的。",
+      "茶留了一口。温的，在杯底晃着小小的光。"
+    ],
+    "choices": [
+      {
+        "text": "看看窗外的灯塔",
+        "next": "first_night_lighthouse"
+      },
+      {
+        "text": "拿出旧MP3，插上耳机试试",
+        "next": "night_mp3",
+        "condition": {
+          "hasItem": "旧MP3"
+        }
+      },
+      {
+        "text": "躺下睡觉。明天再说。",
+        "next": "morning_first"
+      }
+    ]
+  },
+  "night_mp3": {
+    "paragraphs": [
+      "你从箱子里翻出那台旧 MP3。外壳凉凉的，按键上有一层薄灰。",
+      "按下播放键——什么都没有。电池早就没电了。",
+      "但你把耳机塞进耳朵里。",
+      "安静中，你隐约听见了什么。也许不是音乐——是那个曾经反复播放这首歌的夜晚。",
+      "前奏响起时窗外在下雨。某一句歌词让你按下暂停，哭了一会儿，然后倒回去重听。",
+      "MP3 没电了。但旋律还在。它一直会在。"
+    ],
+    "choices": [
+      {
+        "text": "摘下耳机，躺下睡觉",
+        "next": "morning_first"
+      },
+      {
+        "text": "再听一会儿——用记忆听",
+        "next": "first_night"
+      }
+    ]
+  },
+  "first_night_lighthouse": {
+    "paragraphs": [
+      "灯塔的光很有节奏——亮三秒，暗一秒。",
+      "你想起阿树说的：\"有些人来是为了找一个答案。有些人来是为了忘掉一个问题。\"",
+      "你不太确定自己是哪种。也许两种都有。也许都不是。"
+    ],
+    "choices": [
+      {
+        "text": "躺下睡觉。明天会知道的。",
+        "next": "morning_first"
+      }
+    ]
+  },
+  "morning_first": {
+    "title": "清晨",
+    "paragraphs": [
+      "海风把你叫醒了——或者说，是阳光和海风一起。",
+      "窗外的小镇在晨光中完全变了个样。石板路是暖灰色的，远处的大海在日出中泛着金光。码头上有人在整理渔网，老街上飘来面馆的香味。",
+      "阿树在楼下泡茶。你下楼的脚步声让他抬起头。",
+      "\"早。睡得好吗？\""
+    ],
+    "choices": [
+      {
+        "text": "\"很好。好久没睡得这么沉了。\"",
+        "next": "morning_explore"
+      },
+      {
+        "text": "\"做了个梦。但不记得了。\"",
+        "next": "morning_explore"
+      }
+    ]
+  },
+  "morning_explore": {
+    "paragraphs": [
+      "\"今天你可以到处走走。\"阿树递给你一杯茶，\"灯塔那边有个守灯人——老陈。面馆的秋姨做的海鲜面不错。海边有个小姑娘经常在那里画画。\"",
+      "他顿了顿。",
+      "\"想跟谁聊聊都行。不想聊也行。我都在茶馆。\""
+    ],
+    "choices": [
+      {
+        "text": "去灯塔看看老陈",
+        "next": "meet_laochen_first"
+      },
+      {
+        "text": "去码头走走",
+        "next": "explore_dock"
+      },
+      {
+        "text": "先去面馆吃碗面",
+        "next": "explore_noodle"
+      }
+    ]
+  },
+  "explore_dock": {
+    "paragraphs": [
+      "码头的风很大。几个老人在钓鱼，鱼竿架在栏杆上，他们自己坐在马扎上打盹。",
+      "海面上有几艘渔船。更远的地方，海和天模糊成一片灰蓝。",
+      "一个钓鱼的老人睁开一只眼看了看你，又闭上了。"
+    ],
+    "choices": [
+      {
+        "text": "在码头坐一会儿",
+        "next": "explore_dock_sit"
+      },
+      {
+        "text": "去灯塔看看",
+        "next": "meet_laochen_first"
+      },
+      {
+        "text": "回茶馆找阿树",
+        "next": "back_to_teahouse"
+      }
+    ]
+  },
+  "explore_dock_sit": {
+    "paragraphs": [
+      "你在码头边上坐了一会儿。海浪拍在石墩上，规律得像呼吸。",
+      "那个打盹的老人忽然开口：\"新来的？\"",
+      "\"嗯。\"",
+      "\"好。这地方好。\"他又闭上了眼。",
+      "你不太确定他说的是小镇好——还是你来这件事好。"
+    ],
+    "next": "explore_dock"
+  },
+  "explore_noodle": {
+    "paragraphs": [
+      "\"来啦？坐！海鲜面？\"",
+      "秋姨的声音比海风还快。她五十出头，手脚麻利得像三十岁，笑起来有两个酒窝。",
+      "不等你回答，她已经转身进了厨房。三分钟后，一碗热气腾腾的海鲜面放在你面前。",
+      "\"多吃点。你瘦。\"",
+      "她对你一无所知，但这话说得像认识了很久。"
+    ],
+    "choices": [
+      {
+        "text": "吃面。很好吃。",
+        "next": "explore_noodle_chat"
+      },
+      {
+        "text": "\"瘦？\"（低头看了看自己）",
+        "next": "explore_noodle_chat"
+      }
+    ]
+  },
+  "explore_noodle_chat": {
+    "paragraphs": [
+      "\"来这镇上的，十个有九个瘦。\"秋姨擦了擦手，\"不是身上瘦——是心里瘦。吃面吧，吃饱了心里能暖和点。\"",
+      "她说话的方式让人没法反驳。你低头吃面。确实很好吃。"
+    ],
+    "choices": [
+      {
+        "text": "吃完面，去灯塔看看",
+        "next": "meet_laochen_first"
+      },
+      {
+        "text": "回茶馆找阿树",
+        "next": "back_to_teahouse"
+      }
+    ]
+  },
+  "back_to_teahouse": {
+    "paragraphs": [
+      "阿树在擦杯子。看到你回来，他点了点头，没问你去哪了。",
+      "\"茶？\"",
+      "你坐下来。茶馆里很安静，只有茶杯轻轻碰撞的声音。"
+    ],
+    "choices": [
+      {
+        "text": "喝杯茶，然后去灯塔",
+        "next": "meet_laochen_first"
+      },
+      {
+        "text": "\"阿树，你在镇子多久了？\"",
+        "next": "ashu_backstory"
+      }
+    ]
+  },
+  "ashu_backstory": {
+    "paragraphs": [
+      "\"十年了吧。\"他放下杯子，\"来的时候跟你想的差不多——想找个地方安静一下。结果安静着安静着，就开了这家茶馆。\"",
+      "\"然后呢？\"",
+      "\"然后——就有人开始来喝茶了。有人的地方就有故事。有故事的地方——就安静不了了。\"",
+      "他笑了一下。和昨晚那种笑不太一样——这次是真的觉得好笑。"
+    ],
+    "choices": [
+      {
+        "text": "去灯塔看看",
+        "next": "meet_laochen_first"
+      }
+    ]
+  },
+  "meet_laochen_first": {
+    "title": "灯塔",
+    "paragraphs": [
+      "灯塔比想象中高。白色的塔身被海风侵蚀出斑驳的痕迹，但顶上的灯擦得很亮。",
+      "灯塔下面有一间小屋，门半掩着。你敲了敲门。",
+      "一个六十多岁的男人打开门。他穿着灰蓝色的旧工作服，头发花白，眼神很安静。",
+      "\"嗯？\"",
+      "他看起来不太习惯有人敲门。"
+    ],
+    "choices": [
+      {
+        "text": "\"你好。我是新来镇上的。阿树说可以来看看。\"",
+        "next": "laochen_hello"
+      },
+      {
+        "text": "\"你好。路过，想看看灯塔。\"",
+        "next": "laochen_hello"
+      }
+    ]
+  },
+  "laochen_hello": {
+    "paragraphs": [
+      "\"哦。\"他点了下头，让开半个身子。\"进来吧。没什么好看的。\"",
+      "屋里很简单。一张床，一张桌子，一把椅子，一个暖水瓶。墙上挂着一张黑白照片——一个女人在灯塔前笑着。",
+      "他注意到你在看照片。没说什么，给你倒了杯水。"
+    ],
+    "choices": [
+      {
+        "text": "\"你在灯塔工作了多久？\"",
+        "next": "laochen_talk_work",
+        "setRelationship": {
+          "npc": "laochen",
+          "change": 1
+        }
+      },
+      {
+        "text": "安静地喝水。不问问题。",
+        "next": "laochen_silent",
+        "setRelationship": {
+          "npc": "laochen",
+          "change": 1
+        }
+      },
+      {
+        "text": "\"照片上是谁？\"",
+        "next": "laochen_photo_trigger"
+      }
+    ]
+  },
+  "laochen_talk_work": {
+    "paragraphs": [
+      "\"三十多年了吧。\"他坐在床沿上，\"从年轻的时候就开始干。那时候灯塔还不是自动的——得手动点。现在好了，机器管的。我就是……看着。\"",
+      "\"看着？\"",
+      "\"嗯。看着它亮。确定它没灭。\"",
+      "他说这话的时候，语气和看照片的时候一样。"
+    ],
+    "choices": [
+      {
+        "text": "\"三十多年，每天看着同一片海——不腻吗？\"",
+        "next": "laochen_sea"
+      },
+      {
+        "text": "\"那我明天再来看你。\"",
+        "next": "laochen_goodbye_first"
+      }
+    ]
+  },
+  "laochen_sea": {
+    "paragraphs": [
+      "\"海天天不一样。\"他说，\"有时候平得像镜子，有时候浪有三层楼高。同一个地方，每天都是新的。\"",
+      "他顿了顿。",
+      "\"人有的时候……也想不一样。但有的事情，变不了。\""
+    ],
+    "choices": [
+      {
+        "text": "没有追问。有些话需要时间。",
+        "next": "laochen_goodbye_first"
+      }
+    ]
+  },
+  "laochen_silent": {
+    "paragraphs": [
+      "你们安静地坐了一会儿。水杯里的热气慢慢消散。",
+      "灯塔的光透过窗户，一闪一闪地照进来。",
+      "老陈忽然开口：\"很少有人来我这里。更少有人——来了之后不说话。\"",
+      "他看了你一眼。不是审视——是一种缓慢的评估。像是在看你耐不耐得住安静。"
+    ],
+    "next": "laochen_goodbye_first"
+  },
+  "laochen_photo_trigger": {
+    "paragraphs": [
+      "老陈的手停了一下。水杯里的水晃了晃。",
+      "\"……我妻子。\"",
+      "他的声音很轻，但很稳。像是在说一个很久以前就接受了的事实。",
+      "\"她走了。七年了。\"",
+      "你没说话。灯塔的光一闪一闪。"
+    ],
+    "choices": [
+      {
+        "text": "\"对不起。我不该问。\"",
+        "next": "laochen_dont_sorry"
+      },
+      {
+        "text": "什么也不说。只是坐在那里。",
+        "next": "laochen_silent_support",
+        "setRelationship": {
+          "npc": "laochen",
+          "change": 2
+        }
+      }
+    ]
+  },
+  "laochen_dont_sorry": {
+    "paragraphs": [
+      "\"不。没事。\"他转过头看着照片，\"……有时候有人问起，也挺好的。说明她还被记得。\""
+    ],
+    "next": "laochen_goodbye_first"
+  },
+  "laochen_silent_support": {
+    "paragraphs": [
+      "你什么都没说。只是坐在那里，和他一起看着照片。",
+      "过了很久，老陈深吸了一口气。",
+      "\"……谢谢。\"",
+      "这是他第一次说谢谢。声音很小，但很真。"
+    ],
+    "next": "laochen_goodbye_first"
+  },
+  "laochen_goodbye_first": {
+    "paragraphs": [
+      "你起身准备离开。老陈送你到门口。",
+      "\"灯塔晚上一直亮着。\"他说，\"睡不着的时候——可以看看。\"",
+      "他不是在说灯塔。"
+    ],
+    "next": "back_to_teahouse_evening"
+  },
+  "back_to_teahouse_evening": {
+    "paragraphs": [
+      "傍晚回到茶馆。阿树在柜台后面看书。",
+      "\"去看老陈了？\"他头也没抬。"
+    ],
+    "choices": [
+      {
+        "text": "\"嗯。他挺……安静的。\"",
+        "next": "ashu_about_laochen"
+      },
+      {
+        "text": "\"他妻子——\"",
+        "next": "ashu_about_laochen"
+      }
+    ]
+  },
+  "ashu_about_laochen": {
+    "paragraphs": [
+      "\"老陈心里有一场暴风雨。\"阿树放下书，\"七年了，还没停。他不说，不代表没在下。\"",
+      "他看着你。",
+      "\"你感觉到了吗？\""
+    ],
+    "choices": [
+      {
+        "text": "\"感觉到了。他看照片的时候——眼睛里有海。\"",
+        "next": "ashu_nod"
+      }
+    ]
+  },
+  "ashu_nod": {
+    "paragraphs": [
+      "阿树点了点头。\"你比你以为的更会看人。\"",
+      "他给你倒了杯茶。这次不是热的——是温的。",
+      "\"不用急。有些连接，需要时间。\""
+    ],
+    "choices": [
+      {
+        "text": "喝茶。留一口。",
+        "next": "chapter1_transition"
+      }
+    ]
+  },
+  "chapter1_transition": {
+    "paragraphs": [
+      "灯塔的光从窗外照进来。一闪一闪。",
+      "你想起老陈看照片的眼神。想起阿树说的\"心里有一场暴风雨\"。",
+      "你想——也许有一天，你能走进那场暴风雨。",
+      "但不是今天。",
+      "今天，你只需要喝茶。留一口。"
+    ],
+    "choices": [
+      {
+        "text": "（第一章结束）",
+        "next": "chapter1_end"
+      }
+    ]
+  },
+  "chapter1_end": {
+    "paragraphs": [
+      "—— 第一章 · 抵达 · 完 ——",
+      "",
+      "进度提示：",
+      "· 完成了开场仪式（物品选择 + 猫）",
+      "· 抵达望海镇，结识阿树",
+      "· 遇见了老陈，建立了初步信任",
+      "· 下一章：深入老陈的心象空间——无尽暴风雨之夜"
+    ],
+    "choices": [
+      {
+        "text": "重新开始",
+        "next": "opening_start"
+      }
+    ]
+  }
+}
