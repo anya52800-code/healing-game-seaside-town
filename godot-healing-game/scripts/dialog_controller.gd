@@ -143,10 +143,15 @@ func _on_continue() -> void:
 
 func _fade_transition(target: String) -> void:
 	AudioManager.play_sfx("transition")
-	animation_player.play("fade_out")
-	await animation_player.animation_finished
+	if panel:
+		var tw := create_tween()
+		tw.tween_property(panel, "modulate:a", 0.0, 0.25)
+		await tw.finished
 	go_to(target)
-	animation_player.play("fade_in")
+	if panel:
+		panel.modulate.a = 0.0
+		var tw := create_tween()
+		tw.tween_property(panel, "modulate:a", 1.0, 0.25)
 
 func clear_choices() -> void:
 	for child in choices_box.get_children():
