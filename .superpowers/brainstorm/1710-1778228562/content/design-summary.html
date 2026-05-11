@@ -1,0 +1,90 @@
+<h2>🎑 完整设计总览</h2>
+<p class="subtitle">望海镇 · 一款关于"自愈与愈人"的治愈系游戏</p>
+
+<div class="section">
+  <div style="display:flex; gap:20px; flex-wrap:wrap;">
+
+    <!-- 列1 -->
+    <div style="flex:1; min-width:320px; display:flex; flex-direction:column; gap:16px;">
+
+      <div style="background:var(--bg-secondary); border-radius:10px; padding:20px;">
+        <div class="label">核心情感弧线</div>
+        <h4 style="margin:4px 0;">🔗 交织模型：自愈 ⇄ 愈人</h4>
+        <p style="font-size:13px; color:var(--text-secondary);">不是先修自己再帮别人。两者同时发生、互相触发。帮助他人时会揭开自己的旧伤；搞砸一段关系是成长而非失败。他人未必接受你的帮助，而这恰恰是重要的学习。</p>
+      </div>
+
+      <div style="background:var(--bg-secondary); border-radius:10px; padding:20px;">
+        <div class="label">世界观</div>
+        <h4 style="margin:4px 0;">🏙️ + 🌌 双层世界</h4>
+        <p style="font-size:13px; color:var(--text-secondary);"><strong>表层：</strong>安静的海边小镇（灯塔、老街、码头、茶馆）。遇见居民，建立信任。<br/><strong>里层：</strong>每个人的心象空间——内心景观的隐喻化呈现。暴风雨之海、画中世界、倒流的茶馆。</p>
+      </div>
+
+      <div style="background:var(--bg-secondary); border-radius:10px; padding:20px;">
+        <div class="label">玩家定位</div>
+        <h4 style="margin:4px 0;">🤝 同行者</h4>
+        <p style="font-size:13px; color:var(--text-secondary);">不是英雄，不是治疗师。你也是一个带着伤的人，在帮别人的过程中找自己的路。</p>
+      </div>
+
+    </div>
+
+    <!-- 列2 -->
+    <div style="flex:1; min-width:320px; display:flex; flex-direction:column; gap:16px;">
+
+      <div style="background:var(--bg-secondary); border-radius:10px; padding:20px;">
+        <div class="label">任务结构</div>
+        <h4 style="margin:4px 0;">🔁 螺旋推进</h4>
+        <p style="font-size:13px; color:var(--text-secondary);">相遇 → 进入心象 → 帮助中触发旧伤 → 主角心象解锁新区域 → 获得领悟回到小镇。支线之间彼此联动，做完的 NPC 会在其他人的故事里出现。</p>
+      </div>
+
+      <div style="background:var(--bg-secondary); border-radius:10px; padding:20px;">
+        <div class="label">心象交互（4种）</div>
+        <h4 style="margin:4px 0;">🖐️ 🎵 🧩 🌿</h4>
+        <p style="font-size:13px; color:var(--text-secondary);">触摸修复 / 共鸣回应 / 选择见证 / 陪伴存在。不同 NPC 搭配不同模式，每个心象有独特手感。</p>
+      </div>
+
+      <div style="background:var(--bg-secondary); border-radius:10px; padding:20px;">
+        <div class="label">冲突系统（4种）</div>
+        <h4 style="margin:4px 0;">🛡️ 💬 🔥 🤫</h4>
+        <p style="font-size:13px; color:var(--text-secondary);">以武止戈（勇气）/ 辩论（智慧）/ 争吵（诚实）/ 沉默（定力）。冲突后果不是胜负，而是关系的改变。</p>
+      </div>
+
+    </div>
+
+    <!-- 列3 -->
+    <div style="flex:1; min-width:320px; display:flex; flex-direction:column; gap:16px;">
+
+      <div style="background:var(--bg-secondary); border-radius:10px; padding:20px;">
+        <div class="label">开场仪式</div>
+        <h4 style="margin:4px 0;">🏠 离家之前</h4>
+        <p style="font-size:13px; color:var(--text-secondary);">傍晚公寓。行李箱还能塞三样东西。十几件物品散落家中，每件会低语（幽默、自嘲、温柔的提问）。隐藏彩蛋：一只猫——带它走不需要占用行李格，只需要一颗多余的心。</p>
+      </div>
+
+      <div style="background:var(--bg-secondary); border-radius:10px; padding:20px;">
+        <div class="label">实现路径</div>
+        <h4 style="margin:4px 0;">B + C 并行 → 三步走</h4>
+        <p style="font-size:13px; color:var(--text-secondary);"><strong>1.</strong> 先用互动小说写出第一章，验证故事情感<br/><strong>2.</strong> 同时用 AI 生成心象空间 DEMO，验证玩法<br/><strong>3.</strong> 汇合到轻量引擎，整合成完整游戏</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <div style="background:rgba(16,185,129,0.08); border-radius:10px; padding:20px;">
+    <h4 style="margin-top:0;">📋 第一步具体做什么</h4>
+    <p style="font-size:14px; color:var(--text-secondary); line-height:1.8;">
+      <strong>主线：写出第一章的互动小说剧本</strong><br/>
+      · 开场仪式：家在傍晚，行李箱，物品低语，猫<br/>
+      · 抵达望海镇，遇见茶馆老板阿树（引路人）<br/>
+      · 第一个支线：灯塔守灯人老陈的"无尽暴风雨之夜"<br/>
+      · 第一次触发主角自己的心象空间<br/><br/>
+      <strong>并行：AI 生成老陈心象空间的可玩 DEMO</strong><br/>
+      · 验证"触摸与修复"交互模式<br/>
+      · 验证情感隐喻在游戏中的表现力
+    </p>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <p style="color: var(--text-secondary); font-size: 14px;">印子姐，这就是我们讨论的全部设计。看一眼有没有遗漏或想调整的？确认后我写成正式设计文档，然后开干。</p>
+</div>

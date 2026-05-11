@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "WebFetch(domain:blog.gitcode.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(claude --version)",
+      "Bash(npm list *)",
+      "Bash(npx @anthropic-ai/claude-code --version)",
+      "Read(//c/Users/jxguo/.claude/skills/**)",
+      "Bash(mkdir -p /c/Users/jxguo/claude-edit/.claude/skills)",
+      "Bash(cp -r /tmp/superpowers-clone/skills/* /c/Users/jxguo/claude-edit/.claude/skills/)",
+      "Bash(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"C:\\\\Users\\\\jxguo\\\\Downloads\\\\02177745011672100000000000000000000ffffac1533549a0d36.mp4\")",
+      "Bash(python3 -c \"import cv2; print\\(cv2.__version__\\)\")",
+      "Bash(python -c \"import cv2; print\\(cv2.__version__\\)\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(python -c \"import pytesseract; print\\('tesseract OK'\\)\")",
+      "Bash(pip install *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python3)",
+      "Read(//c/Users/jxguo/.claude/**)",
+      "mcp__scheduled-tasks__create_scheduled_task",
+      "Bash(gh auth *)",
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "Read(//c/Program Files/GitHub CLI/**)",
+      "Read(//c/Program Files \\(x86\\)/GitHub CLI/**)",
+      "Read(//c/Program Files/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:58126)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const data = require\\('./src/chapter1/story-data.js'\\); console.log\\('Module loaded successfully'\\); console.log\\('Scenes:', Object.keys\\(data\\).length\\);\")",
+      "Bash(git ls-tree *)",
+      "Bash(git init *)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh\" repo create healing-game-seaside-town --public --source=. --remote=origin --push)",
+      "Bash(git push *)",
+      "WebFetch(domain:anya52800-code.github.io)"
+    ]
+  }
+}

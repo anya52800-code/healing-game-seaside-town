@@ -22,15 +22,46 @@ const CHAPTER1_DATA = {
       '每一件东西都认识你。有些东西甚至比你自己还了解你。',
     ],
     choices: [
-      { text: '看看书架边的旧照片', next: 'item_photo' },
-      { text: '拿起搭在椅背上的手织围巾', next: 'item_scarf' },
-      { text: '打开抽屉，看看那封未寄出的信', next: 'item_letter' },
-      { text: '去阳台看看那块石头', next: 'item_stone' },
-      { text: '拿起床头柜上的旧 MP3', next: 'item_mp3' },
-      { text: '看看窗台上那盆快枯死的植物', next: 'item_plant' },
+      { text: '看看书架边的旧照片', next: 'item_photo', condition: { notFlag: 'took_photo' } },
+      { text: '拿起搭在椅背上的手织围巾', next: 'item_scarf', condition: { notFlag: 'took_scarf' } },
+      { text: '打开抽屉，看看那封未寄出的信', next: 'item_letter', condition: { notFlag: 'took_letter' } },
+      { text: '去阳台看看那块石头', next: 'item_stone', condition: { notFlag: 'took_stone' } },
+      { text: '拿起床头柜上的旧 MP3', next: 'item_mp3', condition: { notFlag: 'took_mp3' } },
+      { text: '看看窗台上那盆快枯死的植物', next: 'item_plant', condition: { notFlag: 'took_plant' } },
+      { text: '从书架上抽出那本没读完的书', next: 'item_book', condition: { notFlag: 'took_book' } },
+      { text: '拉开电视柜抽屉——里面有台旧游戏机', next: 'item_game', condition: { notFlag: 'took_game' } },
       { text: '注意到沙发上蜷着的猫', next: 'item_cat_first' },
-      { text: '（行李箱差不多满了，该出发了）', next: 'opening_leave' }
-    ]
+      { text: '（行李箱满了，该出发了）', next: 'opening_leave' }
+    ],
+    onEnter: function(state, box) {
+      const openingItems = ['旧照片', '手织围巾', '未寄出的信', '光滑的石头', '旧MP3', '快枯死的植物', '旧书', '旧游戏机'];
+      const picked = openingItems.filter(item => state.inventory.includes(item));
+      const count = picked.length;
+      const remaining = 3 - count;
+
+      const counterP = document.createElement('p');
+      counterP.style.cssText = 'color: #c8a860; font-style: italic; margin-top: 12px; text-align: center; font-size: 14px;';
+      const choicesDiv = box.querySelector('.choices');
+
+      if (count === 0) {
+        counterP.textContent = '箱子差不多满了——大概还能塞三样东西。';
+      } else if (count < 3) {
+        counterP.textContent = '行李箱里放了 ' + count + ' 样东西。还能再塞 ' + remaining + ' 件。';
+      } else {
+        counterP.textContent = '行李箱满了。三样东西——不多不少。是时候出发了。';
+        // hide item choices, keep only leave button
+        const buttons = box.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => {
+          if (!btn.textContent.includes('该出发了') && !btn.textContent.includes('行李箱满了')) {
+            btn.style.display = 'none';
+          }
+        });
+      }
+
+      if (choicesDiv) {
+        box.insertBefore(counterP, choicesDiv);
+      }
+    }
   },
 
   // ===== Item: Old Photo =====
@@ -133,6 +164,42 @@ const CHAPTER1_DATA = {
 
   item_plant_add: {
     paragraphs: ['植物的叶子蹭了蹭你的手。你不太确定植物能不能蹭人。也许只是风。'],
+    next: 'opening_room'
+  },
+
+  // ===== Item: Unfinished Book =====
+  item_book: {
+    paragraphs: [
+      '一本翻到一半的书。你读过很多次，但从来没读完。',
+      '不是不好看——是每次读到某个段落，你就停下来想很久。那几页被反复翻过，边缘起毛了。',
+      '书脊有些裂了。它跟着你搬了三次家。',
+    ],
+    choices: [
+      { text: '放进箱子。总有一天我会把它读完。', next: 'item_book_add', addItem: '旧书', setFlag: 'took_book' },
+      { text: '放回书架。有些故事，读到一半就够了。', next: 'opening_room' },
+    ]
+  },
+
+  item_book_add: {
+    paragraphs: ['书页间夹着一张旧书签——你都不记得什么时候放的。也许到了望海镇，可以接着读。'],
+    next: 'opening_room'
+  },
+
+  // ===== Item: Old Game Console =====
+  item_game: {
+    paragraphs: [
+      '一台老旧的掌机。外壳有些发黄，屏幕上有一道浅浅的划痕。',
+      '你很久没碰过它了。但你知道电池仓里还插着那张卡带——存档停在某个暑假的傍晚。',
+      '以前你觉得玩游戏是浪费时间。现在你不太确定什么才算"不浪费"。',
+    ],
+    choices: [
+      { text: '放进箱子。也许可以再玩一会儿。', next: 'item_game_add', addItem: '旧游戏机', setFlag: 'took_game' },
+      { text: '放回抽屉。有些游戏，存档停在最好的时候就够了。', next: 'opening_room' },
+    ]
+  },
+
+  item_game_add: {
+    paragraphs: ['游戏机滑进箱子侧袋。你没开机——但你知道那个存档还在。有些东西，暂停比通关更需要勇气。'],
     next: 'opening_room'
   },
 
@@ -277,7 +344,23 @@ const CHAPTER1_DATA = {
     ],
     choices: [
       { text: '看看窗外的灯塔', next: 'first_night_lighthouse' },
+      { text: '拿出旧MP3，插上耳机试试', next: 'night_mp3', condition: { hasItem: '旧MP3' } },
       { text: '躺下睡觉。明天再说。', next: 'morning_first' },
+    ]
+  },
+
+  night_mp3: {
+    paragraphs: [
+      '你从箱子里翻出那台旧 MP3。外壳凉凉的，按键上有一层薄灰。',
+      '按下播放键——什么都没有。电池早就没电了。',
+      '但你把耳机塞进耳朵里。',
+      '安静中，你隐约听见了什么。也许不是音乐——是那个曾经反复播放这首歌的夜晚。',
+      '前奏响起时窗外在下雨。某一句歌词让你按下暂停，哭了一会儿，然后倒回去重听。',
+      'MP3 没电了。但旋律还在。它一直会在。',
+    ],
+    choices: [
+      { text: '摘下耳机，躺下睡觉', next: 'morning_first' },
+      { text: '再听一会儿——用记忆听', next: 'first_night' },
     ]
   },
 
@@ -357,7 +440,7 @@ const CHAPTER1_DATA = {
     ],
     choices: [
       { text: '吃面。很好吃。', next: 'explore_noodle_chat' },
-      { text: '"你怎么知道我瘦？"', next: 'explore_noodle_chat' },
+      { text: '"瘦？"（低头看了看自己）', next: 'explore_noodle_chat' },
     ]
   },
 

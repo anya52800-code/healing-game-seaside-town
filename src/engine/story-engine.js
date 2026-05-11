@@ -53,7 +53,7 @@ class StoryEngine {
     box.innerHTML = html;
     this.bindEvents(scene, visibleChoices);
 
-    if (scene.onEnter) { scene.onEnter(this.state); }
+    if (scene.onEnter) { scene.onEnter(this.state, box, this); }
     box.scrollTop = 0;
   }
 
